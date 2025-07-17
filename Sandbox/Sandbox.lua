@@ -18,9 +18,7 @@ project "Sandbox"
 
     links
     {
-        "Engine",
-        "GLFW",
-        "JoltPhysics"
+        "Engine"
     }
 
     targetdir ("%{wks.location}/Binaries/" .. OutputDir)

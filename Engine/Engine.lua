@@ -12,7 +12,18 @@ project "Engine"
 
     includedirs
     {
-        "Src/Runtime"
+        "Src/Runtime",
+        "%{IncludeDir.GLFW}",
+        "%{IncludeDir.ImGui}",
+        "%{IncludeDir.JoltPhysics}",
+    }
+
+    links
+    {
+        "GLFW",
+        "ImGui",
+        "JoltPhysics",
+        "opengl32.lib"
     }
 
     targetdir ("%{wks.location}/Binaries/" .. OutputDir)
