@@ -3,7 +3,7 @@ project "GLFW"
     language "C"
     staticruntime "off"
     
-    targetdir ("%{wks.location}/Binaries/" .. OutputDir .. "/ThirdParty")
+    targetdir ("%{wks.location}/Binaries/" .. OutputDir .. "/ThirdParty/%{prj.name}")
     objdir ("%{wks.location}/Intermediate/Build/" .. OutputDir .. "/%{prj.name}")
     
     files
@@ -57,6 +57,6 @@ project "GLFW"
         optimize "on"
         
     filter "configurations:Dist"
-         runtime "Release"
-         optimize "on"
-         symbols "off"
+        runtime "Release"
+        optimize "on"
+        symbols "off"

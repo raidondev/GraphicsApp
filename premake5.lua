@@ -8,6 +8,7 @@ OutputDir = "%{cfg.platform}/%{cfg.buildcfg}"
 
 group "Dependencies"
     include "Engine/Src/ThirdParty/GLFW"
+    include "Engine/Src/ThirdParty/JoltPhysics"
 group ""
 
 include "Engine/Engine.lua"
