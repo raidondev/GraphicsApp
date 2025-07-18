@@ -15,7 +15,7 @@ project "Engine"
         "Src/Runtime",
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.ImGui}",
-        "%{IncludeDir.JoltPhysics}",
+        "%{IncludeDir.JoltPhysics}"
     }
 
     links

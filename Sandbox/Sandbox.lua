@@ -13,7 +13,10 @@ project "Sandbox"
     includedirs
     {
         "Src",
-        "%{wks.location}/Engine/Src/Runtime"
+        "%{wks.location}/Engine/Src/Runtime",
+        "%{IncludeDir.GLFW}",
+        "%{IncludeDir.ImGui}",
+        "%{IncludeDir.JoltPhysics}"
     }
 
     links
