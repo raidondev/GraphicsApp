@@ -1,4 +1,4 @@
-#include <Application.h>
+#include <EntryPoint.h>
 
 class Sandbox : public GraphicsApp::Application
 {
@@ -12,9 +12,7 @@ public:
     virtual void Run() override { Application::Run(); }
 };
 
-int main()
+GraphicsApp::Application* GraphicsApp::CreateApplication()
 {
-    Sandbox app;
-    app.Run();
-    return 0;
+    return new Sandbox();
 }

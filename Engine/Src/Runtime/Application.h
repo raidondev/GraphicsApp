@@ -18,4 +18,7 @@ namespace GraphicsApp
         std::unique_ptr<Window> m_Window;
         bool m_Running = true;
     };
+
+    // Defined in client application
+    Application* CreateApplication();
 }
