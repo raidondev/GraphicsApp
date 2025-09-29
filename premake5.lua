@@ -4,18 +4,18 @@ workspace "GraphicsApp"
     configurations { "Debug", "Release", "Dist" }
     startproject "Sandbox"
 
-OutputDir = "%{cfg.platform}/%{cfg.buildcfg}"
-
 IncludeDir = {}
-IncludeDir["GLFW"] = "%{wks.location}/Engine/Src/ThirdParty/GLFW/include"
-IncludeDir["ImGui"] = "%{wks.location}/Engine/Src/ThirdParty/ImGui"
-IncludeDir["JoltPhysics"] = "%{wks.location}/Engine/Src/ThirdParty/JoltPhysics/Jolt"
+IncludeDir["Glad"] = "%{wks.location}/Engine/ThirdParty/glad/include"
+IncludeDir["GLFW"] = "%{wks.location}/Engine/ThirdParty/glfw/include"
+IncludeDir["ImGui"] = "%{wks.location}/Engine/ThirdParty/imgui"
+IncludeDir["JoltPhysics"] = "%{wks.location}/Engine/ThirdParty/joltphysics/Jolt"
 
 group "Dependencies"
-    include "Engine/Src/ThirdParty/GLFW"
-    include "Engine/Src/ThirdParty/ImGui"
-    include "Engine/Src/ThirdParty/JoltPhysics"
+    include "Engine/ThirdParty/glad" 
+    include "Engine/ThirdParty/glfw"
+    include "Engine/ThirdParty/imgui"
+    include "Engine/ThirdParty/joltphysics"
 group ""
 
-include "Engine/Engine.lua"
-include "Sandbox/Sandbox.lua"
+include "Engine"
+include "Sandbox"
