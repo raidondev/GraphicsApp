@@ -12,9 +12,14 @@ namespace GraphicsApp
         Application(const Window::WindowProps& props);
         virtual ~Application();
 
-        virtual void Run();
+        void Run();
 
-    private:
+    protected:
+        virtual void Initialize() {}
+        virtual void OnUpdate() {}
+        virtual void OnFramebufferResize(int width, int height) {}
+        virtual void Shutdown() {}
+
         std::unique_ptr<Window> m_Window;
         bool m_Running = true;
     };

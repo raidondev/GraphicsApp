@@ -1,7 +1,12 @@
 ﻿#pragma once
 
+#include <functional>
 #include <string>
+
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
+
+using FramebufferResizeCallbackFn = std::function<void(int, int)>;
 
 namespace GraphicsApp
 {
@@ -24,17 +29,21 @@ namespace GraphicsApp
         virtual ~Window();
 
         void OnUpdate();
+        void SetFramebufferResizeCallback(FramebufferResizeCallbackFn callback);
+
         uint32_t GetWidth() const { return m_Data.Width; }
         uint32_t GetHeight() const { return m_Data.Height; }
 
         bool ShouldClose() const { return glfwWindowShouldClose(m_Window); }
 
     private:
-        void Init(const WindowProps& props);
+        void Initialize(const WindowProps& props);
         void Shutdown();
 
-    private:
+        void OnFramebufferResize(int width, int height);
+        
         GLFWwindow* m_Window;
+        FramebufferResizeCallbackFn m_FramebufferResizeCallback;
 
         struct WindowData
         {

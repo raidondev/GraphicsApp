@@ -16,6 +16,7 @@ project "Engine"
     includedirs
     {
         "Source/Runtime",
+        "%{IncludeDir.Glad}",
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.ImGui}",
         "%{IncludeDir.JoltPhysics}"
@@ -23,6 +24,7 @@ project "Engine"
 
     links
     {
+        "Glad",
         "GLFW",
         "ImGui",
         "JoltPhysics",

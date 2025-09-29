@@ -17,6 +17,7 @@ project "Sandbox"
     {
         "Source",
         "%{wks.location}/Engine/Source/Runtime",
+        "%{IncludeDir.Glad}",        
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.ImGui}",
         "%{IncludeDir.JoltPhysics}"
