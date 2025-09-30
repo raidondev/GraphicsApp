@@ -1,5 +1,17 @@
-/Binaries/
-/Intermediate/
+# Binaries
+Binaries/
+Intermediate/
 
+# ImGui config
+imgui.ini
+
+# Visual Studio
+.vs/
+*.sln
 *.vcxproj
 *.vcxproj.filters
+*.vcxproj.user
+
+# JetBrains Rider
+.idea/
+*.iml
