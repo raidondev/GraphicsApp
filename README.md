@@ -35,13 +35,11 @@ This will create a Visual Studio solution using Premake.
 
 To successfully build and run this project, ensure you have the following installed:
 - **Visual Studio 2022** (with the appropriate C++ development workload) or **JetBrains Rider** (Optional)
-- **Premake 5** (already set up in the project)
+- **Premake 5** (already provided in the project)
 
 ## Library Versions
-The following third-party libraries are bundled with this project:
+The following third-party libraries are included in the `ThirdParty` folder:
 - **OpenGL**: Version 4.6
 - **GLFW**: Version 3.4
 - **Jolt Physics**: Version 5.3.0
-- **ImGui (Dear ImGui)**: Version 1.92.1
-
-These libraries are included in the `ThirdParty` folder with only the necessary code.
+- **ImGui (Dear ImGui)**: Version 1.92.1 .
