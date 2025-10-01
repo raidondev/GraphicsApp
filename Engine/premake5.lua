@@ -19,7 +19,8 @@ project "Engine"
         "%{IncludeDir.Glad}",
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.ImGui}",
-        "%{IncludeDir.JoltPhysics}"
+        "%{IncludeDir.JoltPhysics}",
+        "%{IncludeDir.STB}"
     }
 
     links

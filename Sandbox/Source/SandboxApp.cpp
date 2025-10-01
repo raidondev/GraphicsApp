@@ -3,15 +3,11 @@
 #include <iostream>
 #include <ostream>
 
-#define STB_IMAGE_IMPLEMENTATION
-#include <stb/stb_image.h>
-
 namespace GraphicsApp
 {
     Sandbox::Sandbox()
         : Application(Window::WindowProps("Sandbox", 800, 600))
-    {
-    }
+    {}
 
     void Sandbox::Initialize()
     {
@@ -64,55 +60,12 @@ namespace GraphicsApp
 
         m_Shader = new Shader("Assets/Shaders/vertex.glsl", "Assets/Shaders/fragment.glsl");
 
-        // Load Texture 1
-        glGenTextures(1, &m_Texture1);
-        glBindTexture(GL_TEXTURE_2D, m_Texture1);
-
-        // Set texture wrapping and filtering
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-        int width, height, nrChannels;
-        unsigned char* data = stbi_load("Assets/Textures/wall.jpg", &width, &height, &nrChannels, 0);
-        if (data)
-        {
-            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-            glGenerateMipmap(GL_TEXTURE_2D);
-        }
-        else
-        {
-            std::cout << "Failed to load texture" << "\n";
-        }
-        stbi_image_free(data);
-
-        // Load Texture 2
-        glGenTextures(1, &m_Texture2);
-        glBindTexture(GL_TEXTURE_2D, m_Texture2);
-
-        // Set texture wrapping and filtering
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-        stbi_set_flip_vertically_on_load(true);
-        data = stbi_load("Assets/Textures/awesomeface.png", &width, &height, &nrChannels, 0);
-        if (data)
-        {
-            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
-            glGenerateMipmap(GL_TEXTURE_2D);
-        }
-        else
-        {
-            std::cout << "Failed to load texture" << "\n";
-        }
-        stbi_image_free(data);
+        m_Texture1 = new Texture("Assets/Textures/wall.jpg", GL_TEXTURE0, false);
+        m_Texture2 = new Texture("Assets/Textures/awesomeface.png", GL_TEXTURE1, true);
 
         m_Shader->Use();
-        glUniform1i(glGetUniformLocation(m_Shader->ID, "texture1"), 0);
-        glUniform1i(glGetUniformLocation(m_Shader->ID, "texture2"), 1);
+        m_Shader->SetInt("texture1", 0);
+        m_Shader->SetInt("texture2", 1);
     }
 
     void Sandbox::OnUpdate()
@@ -120,14 +73,12 @@ namespace GraphicsApp
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, m_Texture1);
-        glActiveTexture(GL_TEXTURE1);
-        glBindTexture(GL_TEXTURE_2D, m_Texture2);
+        m_Texture1->Bind();
+        m_Texture2->Bind();
 
         m_Shader->Use();
         glBindVertexArray(m_VAO);
-        glDrawElements((GL_TRIANGLES), 6, GL_UNSIGNED_INT, nullptr);
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
         // glDrawArrays(GL_TRIANGLES, 0, 3);
     }
 
@@ -142,6 +93,9 @@ namespace GraphicsApp
         std::cout << "Shutdown\n";
 
         delete m_Shader;
+        delete m_Texture1;
+        delete m_Texture2;
+
         glDeleteVertexArrays(1, &m_VAO);
         glDeleteBuffers(1, &m_VBO);
         glDeleteBuffers(1, &m_EBO);
