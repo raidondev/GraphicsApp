@@ -9,6 +9,7 @@ workspace "GraphicsApp"
     IncludeDir["GLFW"] = "%{wks.location}/Engine/ThirdParty/glfw/include"
     IncludeDir["ImGui"] = "%{wks.location}/Engine/ThirdParty/imgui"
     IncludeDir["JoltPhysics"] = "%{wks.location}/Engine/ThirdParty/joltphysics/Jolt"
+    IncludeDir["STB"] = "%{wks.location}/Engine/ThirdParty/stb/include"
     
     group "Dependencies"
         include "Engine/ThirdParty/glad" 
