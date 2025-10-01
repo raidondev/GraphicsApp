@@ -16,11 +16,11 @@ namespace GraphicsApp
         unsigned int vertexShader = CompileShader(GL_VERTEX_SHADER, vertexCode);
         unsigned int fragmentShader = CompileShader(GL_FRAGMENT_SHADER, fragmentCode);
 
-        ID = glCreateProgram();
-        glAttachShader(ID, vertexShader);
-        glAttachShader(ID, fragmentShader);
-        glLinkProgram(ID);
-        CheckProgramLinkErrors(ID);
+        m_ShaderID = glCreateProgram();
+        glAttachShader(m_ShaderID, vertexShader);
+        glAttachShader(m_ShaderID, fragmentShader);
+        glLinkProgram(m_ShaderID);
+        CheckProgramLinkErrors(m_ShaderID);
 
         glDeleteShader(vertexShader);
         glDeleteShader(fragmentShader);
@@ -28,27 +28,27 @@ namespace GraphicsApp
 
     Shader::~Shader()
     {
-        glDeleteProgram(ID);
+        glDeleteProgram(m_ShaderID);
     }
 
     void Shader::Use() const
     {
-        glUseProgram(ID);
+        glUseProgram(m_ShaderID);
     }
 
     void Shader::SetBool(const std::string& name, bool value) const
     {
-        glUniform1i(glGetUniformLocation(ID, name.c_str()), static_cast<int>(value));
+        glUniform1i(glGetUniformLocation(m_ShaderID, name.c_str()), static_cast<int>(value));
     }
 
     void Shader::SetInt(const std::string& name, int value) const
     {
-        glUniform1i(glGetUniformLocation(ID, name.c_str()), value);
+        glUniform1i(glGetUniformLocation(m_ShaderID, name.c_str()), value);
     }
 
     void Shader::SetFloat(const std::string& name, float value) const
     {
-        glUniform1f(glGetUniformLocation(ID, name.c_str()), value);
+        glUniform1f(glGetUniformLocation(m_ShaderID, name.c_str()), value);
     }
 
     std::string Shader::LoadShaderSource(const std::string& filePath)

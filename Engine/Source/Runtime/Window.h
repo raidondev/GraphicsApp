@@ -34,6 +34,8 @@ namespace GraphicsApp
         uint32_t GetWidth() const { return m_Data.Width; }
         uint32_t GetHeight() const { return m_Data.Height; }
 
+        GLFWwindow* GetNativeWindow() const { return m_Window; }
+
         bool ShouldClose() const { return glfwWindowShouldClose(m_Window); }
 
     private:

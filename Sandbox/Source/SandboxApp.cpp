@@ -13,8 +13,7 @@ namespace GraphicsApp
     {
         std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << "\n";
 
-        // Toggle wireframe mode
-        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+        m_ImGuiLayer.Initialize(m_Window->GetNativeWindow());
 
         // Triangle Vertices
         float vertices[] = {
@@ -70,7 +69,19 @@ namespace GraphicsApp
 
     void Sandbox::OnUpdate()
     {
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        m_ImGuiLayer.BeginFrame();
+
+        // Debug panel
+        ImGui::Begin("Debug Menu");
+        ImGui::ColorEdit3("Clear Color", reinterpret_cast<float*>(&m_ClearColor));
+        if (ImGui::Checkbox("Wireframe", &m_Wireframe))
+        {
+            // Toggle wireframe mode
+            glPolygonMode(GL_FRONT_AND_BACK, m_Wireframe ? GL_LINE : GL_FILL);
+        }
+        ImGui::End();
+
+        glClearColor(m_ClearColor.x, m_ClearColor.y, m_ClearColor.z, m_ClearColor.w);
         glClear(GL_COLOR_BUFFER_BIT);
 
         m_Texture1->Bind();
@@ -80,6 +91,8 @@ namespace GraphicsApp
         glBindVertexArray(m_VAO);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
         // glDrawArrays(GL_TRIANGLES, 0, 3);
+
+        m_ImGuiLayer.EndFrame();
     }
 
     void Sandbox::OnFramebufferResize(int width, int height)

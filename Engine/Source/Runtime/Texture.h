@@ -14,7 +14,7 @@ namespace GraphicsApp
         void Bind() const;
         void Unbind() const;
 
-        unsigned int GetID() const { return m_TextureID; }
+        unsigned int GetTextureID() const { return m_TextureID; }
 
     private:
         unsigned int m_TextureID = 0;

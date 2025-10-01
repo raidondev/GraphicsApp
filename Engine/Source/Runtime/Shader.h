@@ -7,7 +7,7 @@ namespace GraphicsApp
     class Shader
     {
     public:
-        unsigned int ID;
+        unsigned int m_ShaderID;
 
         Shader(const char* vertexPath, const char* fragmentPath);
         ~Shader();

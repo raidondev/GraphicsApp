@@ -4,6 +4,7 @@
 
 #include "Shader.h"
 #include "Texture.h"
+#include "ImGuiLayer.h"
 
 namespace GraphicsApp
 {
@@ -11,8 +12,7 @@ namespace GraphicsApp
     {
     public:
         Sandbox();
-        ~Sandbox()
-        override = default;
+        ~Sandbox() override = default;
 
         void Initialize() override;
         void OnUpdate() override;
@@ -25,5 +25,10 @@ namespace GraphicsApp
         Shader* m_Shader = nullptr;
         Texture* m_Texture1 = nullptr;
         Texture* m_Texture2 = nullptr;
+
+        ImGuiLayer m_ImGuiLayer;
+        ImVec4 m_ClearColor = ImVec4(0.2f, 0.3f, 0.3f, 1.0f);
+
+        bool m_Wireframe = false;
     };
 }
