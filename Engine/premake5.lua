@@ -4,7 +4,7 @@ project "Engine"
     cppdialect "C++20"
     staticruntime "Off"
 
-    targetdir ("%{wks.location}/Engine/Binaries/ThirdParty")
+    targetdir ("%{wks.location}/Engine/Binaries")
     objdir ("%{wks.location}/Engine/Intermediate/%{cfg.platform}/%{cfg.buildcfg}/%{prj.name}")
 
     files
