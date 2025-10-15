@@ -30,5 +30,12 @@ namespace GraphicsApp
         ImVec4 m_ClearColor = ImVec4(0.2f, 0.3f, 0.3f, 1.0f);
 
         bool m_Wireframe = false;
+        bool m_ShowDebugMenu = true;
+
+        GLuint m_FBO = 0;
+        GLuint m_FBOTexture = 0;
+        GLuint m_RBO = 0; // optional depth/stencil
+        int m_FBOWidth = 800;
+        int m_FBOHeight = 600;
     };
 }

@@ -2,7 +2,7 @@
 
 #include <imgui.h>
 
-struct GLFWwindow;
+#include <GLFW/glfw3.h>
 
 namespace GraphicsApp
 {
