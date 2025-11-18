@@ -20,7 +20,7 @@ project "Sandbox"
         "%{IncludeDir.Glad}",        
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.ImGui}",
-        "%{IncludeDir.JoltPhysics}",
+--         "%{IncludeDir.JoltPhysics}",
         "%{IncludeDir.STB}"
     }
 
@@ -35,7 +35,7 @@ project "Sandbox"
 
     filter "system:windows"
         systemversion "latest"
-        defines { "GA_PLATFORM_WINDOWS" }
+        defines { "GE_PLATFORM_WINDOWS" }
 
     filter "configurations:Debug"
         defines { "DEBUG" }

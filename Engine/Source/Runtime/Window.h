@@ -8,7 +8,7 @@
 
 using FramebufferResizeCallbackFn = std::function<void(int, int)>;
 
-namespace GraphicsApp
+namespace GraphicsEngine
 {
     class Window
     {

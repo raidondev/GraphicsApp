@@ -6,7 +6,7 @@
 #include "Texture.h"
 #include "ImGuiLayer.h"
 
-namespace GraphicsApp
+namespace GraphicsEngine
 {
     class Sandbox : public Application
     {

@@ -19,7 +19,7 @@ project "Engine"
         "%{IncludeDir.Glad}",
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.ImGui}",
-        "%{IncludeDir.JoltPhysics}",
+--         "%{IncludeDir.JoltPhysics}",
         "%{IncludeDir.STB}"
     }
 
@@ -28,7 +28,7 @@ project "Engine"
         "Glad",
         "GLFW",
         "ImGui",
-        "JoltPhysics",
+--         "JoltPhysics",
         "opengl32.lib"
     }
 

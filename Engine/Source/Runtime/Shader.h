@@ -2,7 +2,7 @@
 
 #include <string>
 
-namespace GraphicsApp
+namespace GraphicsEngine
 {
     class Shader
     {

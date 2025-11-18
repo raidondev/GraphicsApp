@@ -1,21 +1,21 @@
-workspace "GraphicsApp"
+workspace "GraphicsEngine"
     architecture "x64"
     platforms { "Win64" }
     configurations { "Debug", "Release", "Dist" }
     startproject "Sandbox"
 
     IncludeDir = {}
-    IncludeDir["Glad"] = "%{wks.location}/Engine/ThirdParty/glad/include"
-    IncludeDir["GLFW"] = "%{wks.location}/Engine/ThirdParty/glfw/include"
-    IncludeDir["ImGui"] = "%{wks.location}/Engine/ThirdParty/imgui"
-    IncludeDir["JoltPhysics"] = "%{wks.location}/Engine/ThirdParty/joltphysics/Jolt"
-    IncludeDir["STB"] = "%{wks.location}/Engine/ThirdParty/stb"
+    IncludeDir["Glad"] = "%{wks.location}/Engine/Source/ThirdParty/glad/include"
+    IncludeDir["GLFW"] = "%{wks.location}/Engine/Source/ThirdParty/glfw/include"
+    IncludeDir["ImGui"] = "%{wks.location}/Engine/Source/ThirdParty/imgui"
+--     IncludeDir["JoltPhysics"] = "%{wks.location}/Engine/Source/ThirdParty/joltphysics/Jolt"
+    IncludeDir["STB"] = "%{wks.location}/Engine/Source/ThirdParty/stb"
     
     group "Dependencies"
-        include "Engine/ThirdParty/glad" 
-        include "Engine/ThirdParty/glfw"
-        include "Engine/ThirdParty/imgui"
-        include "Engine/ThirdParty/joltphysics"
+        include "Engine/Source/ThirdParty/glad" 
+        include "Engine/Source/ThirdParty/glfw"
+        include "Engine/Source/ThirdParty/imgui"
+--         include "Engine/Source/ThirdParty/joltphysics"
     group ""
     
     include "Engine"

@@ -3,7 +3,7 @@
 #include <string>
 #include <glad/glad.h>
 
-namespace GraphicsApp
+namespace GraphicsEngine
 {
     class Texture
     {

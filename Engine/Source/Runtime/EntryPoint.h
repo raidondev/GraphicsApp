@@ -4,7 +4,7 @@
 
 int main()
 {
-    auto App = GraphicsApp::CreateApplication();
+    auto App = GraphicsEngine::CreateApplication();
     App->Run();
     delete App;
 }

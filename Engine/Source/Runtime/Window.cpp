@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-namespace GraphicsApp
+namespace GraphicsEngine
 {
     Window::Window(const WindowProps& props)
     {

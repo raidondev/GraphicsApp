@@ -6,7 +6,7 @@
 #include <sstream>
 #include <iostream>
 
-namespace GraphicsApp
+namespace GraphicsEngine
 {
     Shader::Shader(const char* vertexPath, const char* fragmentPath)
     {

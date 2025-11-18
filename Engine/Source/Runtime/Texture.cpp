@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-namespace GraphicsApp
+namespace GraphicsEngine
 {
     Texture::Texture(const std::string& path, GLenum textureUnit, bool flip)
     : m_TextureUnit(textureUnit)

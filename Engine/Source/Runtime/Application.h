@@ -4,7 +4,7 @@
 
 #include "Window.h"
 
-namespace GraphicsApp
+namespace GraphicsEngine
 {
     class Application
     {

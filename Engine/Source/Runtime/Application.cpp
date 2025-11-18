@@ -1,6 +1,6 @@
 #include "Application.h"
 
-namespace GraphicsApp
+namespace GraphicsEngine
 {
     Application::Application(const Window::WindowProps& props)
     {

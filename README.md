@@ -1,4 +1,4 @@
-# Graphics Application
+# Graphics Engine
 
 This project demonstrates a graphics application with OpenGL and [Jolt Physics](https://github.com/jrouwe/JoltPhysics), designed to help with learning and experimentation.
 
@@ -26,7 +26,7 @@ This will create a Visual Studio solution using Premake.
 
 ## 3. Build & Run the Project
 
-1. Open the solution file `GraphicsApp.sln` in **Visual Studio 2022** 1. or **JetBrains Rider**.
+1. Open the solution file `GraphicsEngine.sln` in **Visual Studio 2022** 1. or **JetBrains Rider**.
 2. Select the desired build configuration (Debug or Release).
 3. Build the project.
 4. Run the `Sandbox` target to launch the application.
@@ -42,4 +42,4 @@ The following third-party libraries are included in the `ThirdParty` folder:
 - **OpenGL**: Version 4.6
 - **GLFW**: Version 3.4
 - **Jolt Physics**: Version 5.3.0
-- **ImGui (Dear ImGui)**: Version 1.92.1 .
+- **ImGui (Dear ImGui)**: Version 1.92.1

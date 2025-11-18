@@ -3,7 +3,7 @@
 #include <iostream>
 #include <ostream>
 
-namespace GraphicsApp
+namespace GraphicsEngine
 {
     Sandbox::Sandbox()
         : Application(Window::WindowProps("Sandbox", 800, 600))
@@ -18,11 +18,11 @@ namespace GraphicsApp
 
         // Triangle Vertices
         float vertices[] = {
-            // Positions            // Colors            // Textures
-            0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, // top right
-            0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, // bottom right
-            -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, // bottom left
-            -0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f // top left
+            // Positions           // Colors            // Textures
+             0.5f,  0.5f, 0.0f,    1.0f, 0.0f, 0.0f,    1.0f, 1.0f,    // top right
+             0.5f, -0.5f, 0.0f,    0.0f, 1.0f, 0.0f,    1.0f, 0.0f,    // bottom right
+            -0.5f, -0.5f, 0.0f,    0.0f, 0.0f, 1.0f,    0.0f, 0.0f,    // bottom left
+            -0.5f,  0.5f, 0.0f,    1.0f, 1.0f, 0.0f,    0.0f, 1.0f     // top left
         };
 
         unsigned int indices[] = {
@@ -57,8 +57,7 @@ namespace GraphicsApp
         // Texture coordinate
         glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), reinterpret_cast<void*>(6 * sizeof(float)));
         glEnableVertexAttribArray(2);
-
-
+        
         // Create framebuffer
         glGenFramebuffers(1, &m_FBO);
         glBindFramebuffer(GL_FRAMEBUFFER, m_FBO);
@@ -114,7 +113,7 @@ namespace GraphicsApp
         ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
         ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
         
-        ImGui::Begin("Viewport", nullptr, ImGuiWindowFlags_None);
+        ImGui::Begin("Viewport", nullptr, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse);
 
         ImVec2 viewportSize = ImGui::GetContentRegionAvail();
 
